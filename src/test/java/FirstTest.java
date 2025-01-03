@@ -48,23 +48,20 @@ public class FirstTest {
     @Test
     @DisplayName("앱 시작 시 === 명언 앱 === 출력")
     void t4(){
-        // 테스트 봇 선입력
-//        Scanner sc = new Scanner("종료\n");
-//
-//        ByteArrayOutputStream out = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(out));
-//
-//        TestApp app = new TestApp();
-//        app.run();
-
-//        assertThat(out.toString())
-//                .contains("=== 명언 앱 ===")
-//                .contains("명언앱을 종료합니다.");
 
         String out = TestBot.run("종료");
         // 순서 보장
         assertThat(out.toString())
                 .containsSubsequence("== 명언 앱 ==", "명언앱을 종료합니다");
+
+    }
+
+    @Test
+    @DisplayName("등록 명언 1개 등록")
+    void t5(){
+        String out = TestBot.run("등록\n현재를 사랑하라\n작자미상\n종료");
+
+        assertThat(out).containsSubsequence("명언 : ", "작가 : ");
 
     }
 }
