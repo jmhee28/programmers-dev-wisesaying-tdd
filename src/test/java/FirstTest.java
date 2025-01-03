@@ -47,7 +47,12 @@ public class FirstTest {
     @Test
     @DisplayName("등록 명언 1개 등록")
     void t5(){
-        String out = TestBot.run("등록\n현재를 사랑하라\n작자미상\n종료");
+        String out = TestBot.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                종료
+                """);
 
         assertThat(out).containsSubsequence("명언 : ", "작가 : ");
 
