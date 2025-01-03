@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -23,13 +21,16 @@ public class App {
         while (true) {
             System.out.println("명령 ) ");
             String cmd = sc.nextLine();
-            if (cmd.equals("종료")) {
-                systemController.exit();
-                break;
-            } else if(cmd.equals("등록")) {
-                wiseSayingController.actionWrite();
-            } else if(cmd.equals("목록")) {
-                wiseSayingController.actionPrint();
+            switch (cmd) {
+                case "종료":
+                    systemController.exit();
+                    return;
+                case "등록":
+                    wiseSayingController.actionWrite();
+                    break;
+                case "목록":
+                    wiseSayingController.actionPrint();
+                    break;
             }
         }
     }
