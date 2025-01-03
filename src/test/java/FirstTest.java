@@ -1,9 +1,14 @@
 import org.example.TestApp;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class FirstTest {
 
@@ -23,6 +28,40 @@ public class FirstTest {
         System.setOut(origin); // System.out을 원래대로 복구
         String str = out.toString();
         System.out.println(str); // 출력 안됨
+    }
+
+    @Test
+    void t3(){
+        // 테스트 봇 선입력
+        Scanner sc = new Scanner("종료\n");
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        TestApp app = new TestApp();
+        app.run();
+
+        assertThat(out.toString()).isEqualTo("aaa\n");
+    }
+
+    @Test
+    @DisplayName("앱 시작 시 === 명언 앱 === 출력")
+    void t4(){
+        // 테스트 봇 선입력
+        Scanner sc = new Scanner("종료\n");
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        TestApp app = new TestApp();
+        app.run();
+
+//        assertThat(out.toString())
+//                .contains("=== 명언 앱 ===")
+//                .contains("명언앱을 종료합니다.");
+        // 순서 보장
+        assertThat(out.toString())
+                .containsSubsequence("== 명언 앱 ==", "명언앱을 종료합니다");
 
     }
 }
