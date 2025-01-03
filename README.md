@@ -1,4 +1,7 @@
 # 프로그래머스 데브코스 20250125
+- [X] 명언 게시판을 TDD로 구현
+- [X] Service Controller Repository 분리
+
 ## 명언게시판 TDD - 수업
 명언 게시판을 TDD로 구현
 
@@ -90,3 +93,6 @@ public class TestClass {
 ```
 
 # Service Controller Repository
+- Service: 비즈니스 로직을 처리하는 클래스
+- Controller: 클라이언트의 요청을 받아서 응답을 반환하는 클래스
+- Repository: 데이터베이스에 접근하는 클래스
