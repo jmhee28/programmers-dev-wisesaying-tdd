@@ -37,10 +37,14 @@ public class FirstTest {
     @DisplayName("앱 시작 시 === 명언 앱 === 출력")
     void t4(){
 
-        String out = TestBot.run("종료");
-        // 순서 보장
-        assertThat(out.toString())
-                .containsSubsequence("== 명언 앱 ==", "명언앱을 종료합니다");
+        String out = TestBot.run("""
+                등록
+                종료
+                """ );
+
+        // 출력 횟수 확인
+        int count = out.split("명령 \\)").length - 1;
+        assertThat(count).isEqualTo(2);
 
     }
 
@@ -51,10 +55,10 @@ public class FirstTest {
                 등록
                 현재를 사랑하라
                 작자미상
-                종료
                 """);
-
+        // 출력 순서 보장
         assertThat(out).containsSubsequence("명언 : ", "작가 : ");
-
     }
+
+
 }

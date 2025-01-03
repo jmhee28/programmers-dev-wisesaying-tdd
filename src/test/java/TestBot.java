@@ -10,7 +10,7 @@ public class TestBot {
     // 객체가 data가 없다면(상태가 없다면) static으로 만들어도 된다.
 
     public static String run(String input) {
-        Scanner sc = new Scanner(input + "\n");
+        Scanner sc = new Scanner(input + "종료\n");
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
