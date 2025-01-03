@@ -1,12 +1,9 @@
-import org.example.TestApp;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -32,15 +29,6 @@ public class FirstTest {
 
     @Test
     void t3(){
-        // 테스트 봇 선입력
-//        Scanner sc = new Scanner("종료\n");
-//
-//        ByteArrayOutputStream out = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(out));
-//
-//        TestApp app = new TestApp();
-//        app.run();
-
         String out = TestBot.run("종료");
         assertThat(out.toString()).isEqualTo("명언앱을 종료합니다\n");
     }
