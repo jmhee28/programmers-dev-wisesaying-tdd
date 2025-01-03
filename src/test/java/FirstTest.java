@@ -86,4 +86,21 @@ public class FirstTest {
         // 출력 순서 보장
         assertThat(out).containsSubsequence("1번 명언이 등록되었습니다.", "2번 명언이 등록되었습니다.");
     }
+
+    @Test
+    @DisplayName("목록 검증")
+    void t9(){
+        String out = TestBot.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                등록
+                현재를 사랑하라
+                작자미상
+                """);
+        // 출력 순서 보장
+        assertThat(out).contains("번호 / 작가 / 명언")
+                .contains("----------------------")
+                .containsSubsequence("2 / 작자미상 / 현재를 사랑하라", "1 / 작자미상 / 현재를 사랑하라");
+    }
 }
