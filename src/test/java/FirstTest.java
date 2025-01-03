@@ -103,4 +103,9 @@ public class FirstTest {
                 .contains("----------------------")
                 .containsSubsequence("2 / 작자미상 / 현재를 사랑하라", "1 / 작자미상 / 현재를 사랑하라");
     }
+
+    @Test
+    public void testMethod3() {
+        assertThat("가나").containsSequence("가", "나");
+    }
 }

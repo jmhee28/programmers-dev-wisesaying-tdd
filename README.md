@@ -59,3 +59,34 @@ TDD를 프로젝트에 도입하려면 사전에 필요한 지식을 습득하�
 테스트는 적시에 즉, 테스트하려는 실제 코드를 구현하기 직전에 구현해야 한다.
 
 ### 참조 [TDD](https://incodom.kr/%ED%85%8C%EC%8A%A4%ED%8A%B8_%EC%A3%BC%EB%8F%84_%EA%B0%9C%EB%B0%9C)
+
+## java TDD
+- JUnit
+  - JUnit은 자바 프로그래밍 언어용 단위 테스트 프레임워크이다. JUnit은 Kent Beck과 Erich Gamma가 만들었으며, Beck는 JUnit을 사용하여 익스트림 프로그래밍을 홍보했다. JUnit은 테스트 주도 개발(TDD)의 일환으로 사용된다.
+
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class TestClass {
+    @Test
+    public void testMethod() {
+        assertEquals(1, 1);
+    }
+  @Test
+  public void testMethod2() {
+    assertThat(1).isEqualTo(1);
+  }
+
+  
+  // 순서 확인 테스트
+  @Test
+  public void testMethod3() {
+    assertThat("가나").containsSequence("가", "나");
+  }
+  
+}
+
+```
+
+# Service Controller Repository
