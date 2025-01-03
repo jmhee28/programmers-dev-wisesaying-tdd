@@ -11,6 +11,7 @@
 - 명언을 조회할 수 있다.
 - 명언을 수정할 수 있다.
 - 명언을 삭제할 수 있다.
+- assertThat 의존성 : testImplementation("org.assertj:assertj-core:3.26.3")
 
 # TDD란
 - TDD(Test Driven Development)는 테스트 주도 개발이라고 하며, 테스트를 먼저 작성하고 그 테스트를 통과하는 코드를 작성하는 개발 방법론이다.
